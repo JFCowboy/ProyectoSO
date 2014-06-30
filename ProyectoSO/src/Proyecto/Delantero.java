@@ -22,18 +22,16 @@ public class Delantero extends Jugador{
 
 	@Override
 	public void run() {
+		
 		while( !tablero.isTermino() ){
+			brazuca.usarCupoDelantero();
 			if(tablero.getUbicacionInt() ==  brazuca.getPosicion()){
 				mover();
 				//notifyAll();
-			}else{
-//				try {
-//					this.wait();
-//				} catch (InterruptedException e) {
-//					System.out.println("NO quiero detenerme, ahora te mordere :3" + name);
-//					e.printStackTrace();
-//				}
+				brazuca.liberarCupoDelantero();
 			}
+			brazuca.liberarCupoDelantero();
+			esperar( 100 );
 			
 		}
 		
@@ -45,7 +43,7 @@ public class Delantero extends Jugador{
 	private synchronized void mover(){
 		brazuca.addJugador( this );
 		//brazuca.moverJugadores();
-		brazuca.mover();
+		brazuca.mover(  );
 	}
 	
 }

@@ -2,6 +2,8 @@ package Proyecto;
 
 public class Tablero {
 
+	public static int IZQUIERDA = 0;
+	public static int DERECHA = 1;
 	private int numJugadoresTotal;
 	private String ubicacion;
 	private int ubicacionInt;
@@ -17,7 +19,7 @@ public class Tablero {
 	public String toString() {
 		return "Tablero [numJugadoresTotal=" + numJugadoresTotal
 				+ ", ubicacion=" + ubicacion + ", ubicacionInt=" + ubicacionInt
-				+ "]";
+				+ ", termino=" + termino + "]";
 	}
 	
 	public synchronized int addNumJugadores(){

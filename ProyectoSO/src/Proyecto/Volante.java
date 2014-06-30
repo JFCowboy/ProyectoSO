@@ -25,19 +25,18 @@ public class Volante extends Jugador{
 	public void run() {
 		
 		while( !tablero.isTermino() ){
+			brazuca.usarCupoVolante();	//Detiene a delanteros y ocupa posicion de 1 volante
 			if(tablero.getUbicacionInt() ==  brazuca.getPosicion()){
 				brazuca.addJugador( this );
-				brazuca.mover();
-				//notifyAll();
-			}else{
-//				try {
-//					this.wait();
-//				} catch (InterruptedException e) {
-//					System.out.println("NO quiero detenerme, ahora te mordere :3" + name);
-//					e.printStackTrace();
-//				}
+				esperar(10);	//Espera a algun otro volante
+				if(!brazuca.isMoving()){
+					brazuca.mover(  );
+				}
+				
 			}
-			//brazuca.moverJugadores();
+			brazuca.liberarCupoVolante();
+			//Jugador Hidratandose
+			esperar(100);
 			
 		}
 		

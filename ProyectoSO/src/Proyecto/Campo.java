@@ -3,9 +3,6 @@ package Proyecto;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-
-import javax.swing.text.AbstractDocument.BranchElement;
 
 
 /**
@@ -38,7 +35,7 @@ public class Campo {
 	 */
 	private static void simularJuego(BufferedReader bf) throws IOException {
 		
-		StringTokenizer st;
+		//StringTokenizer st;
 		String linea;
 		System.out.println("Ingrese el numero de volantes en el arco de Colombia");
 		linea = bf.readLine();

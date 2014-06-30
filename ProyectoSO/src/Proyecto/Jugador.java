@@ -1,13 +1,13 @@
 package Proyecto;
 
-public abstract class Jugador implements Runnable{
+public abstract class Jugador extends Thread{
 	/**
 	 * id: numero unico que le corresponde al jugador
 	 * name: Nombre del Jugador
 	 * alineacion: posicion del jugador en el campo(Volante, Delatero)
 	 */
-	protected int id;
-	protected String name, alineacion;
+	protected int identificador;
+	protected String nombre, alineacion;
 	protected Balon brazuca;
 	protected Tablero tablero;
 	protected boolean termino = false;
@@ -18,9 +18,9 @@ public abstract class Jugador implements Runnable{
 	
 	public Jugador(int id, String ubicacion) {
 		super();
-		this.id = id;
+		this.identificador = id;
 		this.alineacion = ubicacion;
-		this.name = "Jugador"+id;
+		this.nombre = "Jugador"+id;
 		
 	}
 	
@@ -29,27 +29,11 @@ public abstract class Jugador implements Runnable{
 	public Jugador(int id, String name, String ubicacion, Balon brazuca,
 			Tablero tablero) {
 		super();
-		this.id = id;
-		this.name = name;
+		this.identificador = id;
+		this.nombre = name;
 		this.alineacion = ubicacion;
 		this.brazuca = brazuca;
 		this.tablero = tablero;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getUbicacion() {
@@ -84,9 +68,33 @@ public abstract class Jugador implements Runnable{
 		this.termino = termino;
 	}
 	
+	public int getIdentificador() {
+		return identificador;
+	}
+
+	public void setIdentificador(int identificador) {
+		this.identificador = identificador;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getAlineacion() {
+		return alineacion;
+	}
+
+	public void setAlineacion(String alineacion) {
+		this.alineacion = alineacion;
+	}
+
 	public void desvincularTablero(){
 		int numJugadores = tablero.subtractNumJugadores(); 
-		if(numJugadores == 0){
+		if(numJugadores == 0 && tablero.getUbicacionInt()==Tablero.IZQUIERDA){
 			termino = true;
 		}
 	}
@@ -95,6 +103,15 @@ public abstract class Jugador implements Runnable{
 		tablero.addNumJugadores();
 		if(termino){
 			tablero.setTermino(true);
+		}
+	}
+	
+	public void esperar( int time ){
+		try {
+			sleep( time );
+		} catch (InterruptedException e) {
+			System.out.println("no quiero detenerme, ahora te mordere :3" + nombre);
+			e.printStackTrace();
 		}
 	}
 	
