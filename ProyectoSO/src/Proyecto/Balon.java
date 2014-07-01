@@ -132,6 +132,18 @@ public class Balon {
 		
 	}
 
+	
+	public void usarCupoVolante( int desdeDelantero ) {
+		
+		try {
+			cupoVolantes.acquire();
+		} catch (InterruptedException e) {
+			System.out.println("Exception en el metodo Balon.usarCupoVolante");
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public void usarCupoDelantero() {
 	
 		try {
@@ -143,11 +155,16 @@ public class Balon {
 		
 	}
 
+	
 	public void liberarCupoVolante() {
 		cupoVolantes.release();
 		idxAux--;
 		if( idxAux==0 )
 			this.liberarCupoDelantero();
+	}
+	
+	public void liberarCupoVolante( int desdeDelantero ) {
+		cupoVolantes.release();
 	}
 	
 	public void liberarCupoDelantero() {
@@ -158,12 +175,12 @@ public class Balon {
 		StringBuilder mensaje = new StringBuilder();
 		if( idx==2 ){
 			int idx = (jugadores[0].getTablero().getUbicacionInt()+1)%2;
-			mensaje.append("El Jugador "+jugadores[0].getNombre()+" Y "+jugadores[1].getNombre()
-					+" salen de la porteria de " +jugadores[0].getTablero().getUbicacion()+
+			mensaje.append("El Jugador "+jugadores[0].getNombre()+" "+ jugadores[0].alineacion+" Y "+jugadores[1].getNombre()
+					+" "+ jugadores[1].alineacion+" salen de la porteria de " +jugadores[0].getTablero().getUbicacion()+
 					", Realizan una pared y se diriguen a la porteria de "+tableros[idx].getUbicacion()+".");
 		}else{
 			int idx = (jugadores[0].getTablero().getUbicacionInt()+1)%2;
-			mensaje.append("El Jugador "+jugadores[0].getNombre()+" toma el balon y se " +
+			mensaje.append("El Jugador "+jugadores[0].getNombre()+" "+ jugadores[0].alineacion+" toma el balon y se " +
 					"dirigue a la porteria de "+tableros[idx].getUbicacion()+".");
 		}
 		return mensaje.toString();

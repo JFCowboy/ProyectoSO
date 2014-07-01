@@ -1,5 +1,7 @@
 package Proyecto;
 
+import java.util.Random;
+
 public class Volante extends Jugador{
 
 
@@ -23,12 +25,12 @@ public class Volante extends Jugador{
 
 	@Override
 	public void run() {
-		
+		Random random = new Random();
 		while( !tablero.isTermino() ){
 			brazuca.usarCupoVolante();	//Detiene a delanteros y ocupa posicion de 1 volante
 			if(tablero.getUbicacionInt() ==  brazuca.getPosicion()){
 				brazuca.addJugador( this );
-				esperar(10);	//Espera a algun otro volante
+				esperar( random.nextInt(11) );	//Espera a algun otro volante
 				if(!brazuca.isMoving()){
 					brazuca.mover(  );
 				}
@@ -36,7 +38,7 @@ public class Volante extends Jugador{
 			}
 			brazuca.liberarCupoVolante();
 			//Jugador Hidratandose
-			esperar(100);
+			esperar( random.nextInt(42) );
 			
 		}
 		
