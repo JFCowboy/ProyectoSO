@@ -11,6 +11,7 @@ public abstract class Jugador extends Thread{
 	protected Balon brazuca;
 	protected Tablero tablero;
 	protected boolean termino = false;
+	private Tablero[] tableros; 	
 	
 	public Jugador() {
 		super( );
@@ -27,13 +28,14 @@ public abstract class Jugador extends Thread{
 
 	
 	public Jugador(int id, String name, String ubicacion, Balon brazuca,
-			Tablero tablero) {
+			Tablero tablero,  Tablero[] tableros) {
 		super();
 		this.identificador = id;
 		this.nombre = name;
 		this.alineacion = ubicacion;
 		this.brazuca = brazuca;
 		this.tablero = tablero;
+		this.tableros = tableros;
 	}
 
 	public String getUbicacion() {
@@ -113,6 +115,20 @@ public abstract class Jugador extends Thread{
 			System.out.println("no quiero detenerme, ahora te mordere :3" + nombre);
 			e.printStackTrace();
 		}
+	}
+	
+	public void cambiarDeTablero(){
+		int table = this.getTablero().getUbicacionInt();
+		table = (table+1)%2;
+		this.setTablero( tableros[table] );
+	}
+
+	public Tablero[] getTableros() {
+		return tableros;
+	}
+
+	public void setTableros(Tablero[] tableros) {
+		this.tableros = tableros;
 	}
 	
 }

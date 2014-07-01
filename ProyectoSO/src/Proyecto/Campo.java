@@ -107,7 +107,7 @@ public class Campo {
 		
 		tableros[0] = new Tablero(nombreTablero0, derecha,0);
 		tableros[1] = new Tablero(nombreTablero1, izquierda,1);
-		Balon balon = new Balon(ladoBalon, tableros);
+		Balon balon = new Balon(ladoBalon);
 		
 		Jugador[] jugadoresCol = new Jugador[derecha];
 		Jugador[] jugadoresAle = new Jugador[izquierda];
@@ -120,24 +120,24 @@ public class Campo {
 		//Crear Volantes
 		for( ; idxCol < volantesCol ; idxCol++){
 			
-			jugadoresCol[idxCol] = new Volante(idxCol, "Col"+idxCol, "Volante", balon, tableros[0] );
+			jugadoresCol[idxCol] = new Volante(idxCol, "Col"+idxCol, "Volante", balon, tableros[0],tableros );
 			hilos[idxH++] = new Thread(jugadoresCol[idxCol]);
 		}
 		//Crear Delanteros
 		for( ; idxCol < derecha ; idxCol++){
-			jugadoresCol[idxCol] = new Delantero(idxCol, "Col"+idxCol, "Delantero", balon, tableros[0]);
+			jugadoresCol[idxCol] = new Delantero(idxCol, "Col"+idxCol, "Delantero", balon, tableros[0],tableros);
 			hilos[idxH++] = new Thread(jugadoresCol[idxCol]);
 		}
 		
 		//*********************Crear Jugadores del lado Izquierdo******************************
 		//Crear Volantes
 		for( ; idxAle < volantesAle ; idxAle++) {
-			jugadoresAle[idxAle] = new Volante(idxAle, "Ale"+idxAle, "Volante", balon, tableros[1]);
+			jugadoresAle[idxAle] = new Volante(idxAle, "Ale"+idxAle, "Volante", balon, tableros[1],tableros);
 			hilos[idxH++] = new Thread(jugadoresAle[idxAle]);
 		}
 		//Crear Delanteros
 		for( ; idxAle < izquierda ; idxAle++) {
-			jugadoresAle[idxAle] = new Delantero(idxAle, "Ale"+idxAle, "Delantero", balon, tableros[1]);
+			jugadoresAle[idxAle] = new Delantero(idxAle, "Ale"+idxAle, "Delantero", balon, tableros[1],tableros);
 			hilos[idxH++] = new Thread(jugadoresAle[idxAle]);
 		}
 		

@@ -14,19 +14,19 @@ public class Balon {
 	private Jugador jugadores[];
 	private int posicion, idxAux;	// idxAux es el Numero de Volantes que han usado el semaforo
 	private int idx;  				// idx es el numero jugadores que se han agregado al balon
-	private Tablero[] tableros; 	// El balon tiene los dos tableros
+	// El balon tiene los dos tableros
 	private boolean moviendo;
 	
-	public Balon( Tablero[] tableros ) {
-		this(2, 1, tableros);
+	public Balon( ) {
+		this(2, 1);
 	}
 
-	public Balon( int posicion, Tablero[] tableros ) {
-		this(2, 1, tableros);
+	public Balon( int posicion) {
+		this(2, 1);
 		this.posicion = posicion;
 	}
 	
-	public Balon( int nv, int nd, Tablero[] tableros) {
+	public Balon( int nv, int nd) {
 		super( );
 		cupoVolantes = new Semaphore( nv );
 		cupoDelantero= new Semaphore( nd );
@@ -35,7 +35,6 @@ public class Balon {
 		idx = 0;
 		idxAux = 0;
 		posicion = 0;
-		this.tableros = tableros;
 		moviendo = false;
 	}
 
@@ -106,12 +105,11 @@ public class Balon {
 		posicion = (posicion+1)%2;				//Cambia la posicion del balon
 		System.out.println( printMensaje() );	//Imprime mensaje de movimiento
 		for(int i = 0; i < idx; i++){			//"Cambia los jugadores de arco"
-			int table = jugadores[i].getTablero().getUbicacionInt();
-			table = (table+1)%2;
+			
 			
 			//Este es el proceso de cambio de tablero para cada jugador
 			jugadores[i].desvincularTablero();
-			jugadores[i].setTablero( tableros[table] );
+			jugadores[i].cambiarDeTablero();
 			jugadores[i].vincularTablero();
 		}
 		terminar();
@@ -177,11 +175,11 @@ public class Balon {
 			int idx = (jugadores[0].getTablero().getUbicacionInt()+1)%2;
 			mensaje.append("El Jugador "+jugadores[0].getNombre()+" "+ jugadores[0].alineacion+" Y "+jugadores[1].getNombre()
 					+" "+ jugadores[1].alineacion+" salen de la porteria de " +jugadores[0].getTablero().getUbicacion()+
-					", Realizan una pared y se diriguen a la porteria de "+tableros[idx].getUbicacion()+".");
+					", Realizan una pared y se diriguen a la porteria de "+jugadores[0].getTableros()[idx].getUbicacion()+".");
 		}else{
 			int idx = (jugadores[0].getTablero().getUbicacionInt()+1)%2;
 			mensaje.append("El Jugador "+jugadores[0].getNombre()+" "+ jugadores[0].alineacion+" toma el balon y se " +
-					"dirigue a la porteria de "+tableros[idx].getUbicacion()+".");
+					"dirigue a la porteria de "+jugadores[0].getTableros()[idx].getUbicacion()+".");
 		}
 		return mensaje.toString();
 	}
@@ -196,8 +194,8 @@ public class Balon {
 		idx = 0;
 		moviendo = false;
 		//Imprimir estado actual del tablero
-		System.out.println("TABLERO");
-		System.out.println(tableros[0]+"\n"+tableros[1]+"\n***");
+		//System.out.println("TABLERO");
+		//System.out.println(jugadores[0].getTableros()+"\n"+jugadores[0].getTableros()+"\n***");
 		
 	}
 

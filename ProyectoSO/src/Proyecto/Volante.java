@@ -18,8 +18,8 @@ public class Volante extends Jugador{
 	}
 
 	public Volante(int id, String name, String ubicacion, Balon brazuca,
-			Tablero tablero) {
-		super(id, name, ubicacion, brazuca, tablero);
+			Tablero tablero, Tablero[] tableros) {
+		super(id, name, ubicacion, brazuca, tablero, tableros);
 		System.out.println("Se a creado Un Volante "+id);
 	}
 

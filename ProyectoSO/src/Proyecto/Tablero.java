@@ -9,6 +9,7 @@ public class Tablero {
 	private int ubicacionInt;
 	private boolean termino = false;
 	
+	
 	public Tablero(String nombreTablero, int numeroJugadores, int ubicacionInt) {
 		ubicacion = nombreTablero;
 		numJugadoresTotal = numeroJugadores;
