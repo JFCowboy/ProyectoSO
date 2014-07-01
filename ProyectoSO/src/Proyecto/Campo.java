@@ -1,5 +1,7 @@
 package Proyecto;
 
+package OperativeSystems.Proyecto;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -49,8 +51,8 @@ public class Campo {
 		while( true ){
 			//	Valores del campo
 			System.out.println(asteriscosCorto+"Valores Del Campo"+asteriscosCorto);
-			System.out.println("1 equipo: "+ nombreTablero0);
-			System.out.println("2 equipo: "+ nombreTablero1);
+			System.out.println("1er equipo: "+ nombreTablero0);
+			System.out.println("2do equipo: "+ nombreTablero1);
 			System.out.println("Balon Lado de "+(ladoBalon==0?nombreTablero0:nombreTablero1));
 			System.out.println(asteriscosCorto);
 			System.out.println("Ingrese 1 para confirmar valores, Otro valor para Modificar");
@@ -90,6 +92,15 @@ public class Campo {
 		linea = bf.readLine();
 		Integer volantesCol = Integer.parseInt(linea);
 		
+		while(volantesCol<2){
+			
+			System.out.println("No de volantes no válido. (>=2)\n"
+					+ "Ingrese el número de volantes en el arco de "+nombreTablero0+" nuevamente");
+			linea = bf.readLine();
+			volantesCol = Integer.parseInt(linea);
+			
+		}
+		
 		System.out.println("Ingrese el numero de delanteros en el arco de "+nombreTablero0);
 		linea = bf.readLine();
 		Integer delanterosCol = Integer.parseInt(linea);
@@ -97,6 +108,15 @@ public class Campo {
 		System.out.println("Ingrese el numero de volantes en el arco de "+nombreTablero1);
 		linea = bf.readLine();
 		Integer volantesAle = Integer.parseInt(linea);
+		
+while(volantesAle<2){
+			
+			System.out.println("No de volantes no válido. (>=2) \n"
+					+ "Ingrese el número de volantes en el arco de "+nombreTablero1+" nuevamente");
+			linea = bf.readLine();
+			volantesAle = Integer.parseInt(linea);
+			
+		}
 		
 		System.out.println("Ingrese el numero de delanteros en el arco de "+nombreTablero1);
 		linea = bf.readLine();
