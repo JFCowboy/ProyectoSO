@@ -1,4 +1,4 @@
-package Proyecto;
+package proyecto;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -120,24 +120,24 @@ public class Campo {
 		//Crear Volantes
 		for( ; idxCol < volantesCol ; idxCol++){
 			
-			jugadoresCol[idxCol] = new Volante(idxCol, "Col"+idxCol, "Volante", balon, tableros[0],tableros );
+			jugadoresCol[idxCol] = new Volante(idxCol, "Col"+idxCol, Jugador.ALI_VOLANTE, balon, tableros[0],tableros );
 			hilos[idxH++] = new Thread(jugadoresCol[idxCol]);
 		}
 		//Crear Delanteros
 		for( ; idxCol < derecha ; idxCol++){
-			jugadoresCol[idxCol] = new Delantero(idxCol, "Col"+idxCol, "Delantero", balon, tableros[0],tableros);
+			jugadoresCol[idxCol] = new Delantero(idxCol, "Col"+idxCol, Jugador.ALI_DELANTERO, balon, tableros[0],tableros);
 			hilos[idxH++] = new Thread(jugadoresCol[idxCol]);
 		}
 		
 		//*********************Crear Jugadores del lado Izquierdo******************************
 		//Crear Volantes
 		for( ; idxAle < volantesAle ; idxAle++) {
-			jugadoresAle[idxAle] = new Volante(idxAle, "Ale"+idxAle, "Volante", balon, tableros[1],tableros);
+			jugadoresAle[idxAle] = new Volante(idxAle, "Ale"+idxAle, Jugador.ALI_VOLANTE, balon, tableros[1],tableros);
 			hilos[idxH++] = new Thread(jugadoresAle[idxAle]);
 		}
 		//Crear Delanteros
 		for( ; idxAle < izquierda ; idxAle++) {
-			jugadoresAle[idxAle] = new Delantero(idxAle, "Ale"+idxAle, "Delantero", balon, tableros[1],tableros);
+			jugadoresAle[idxAle] = new Delantero(idxAle, "Ale"+idxAle, Jugador.ALI_DELANTERO, balon, tableros[1],tableros);
 			hilos[idxH++] = new Thread(jugadoresAle[idxAle]);
 		}
 		

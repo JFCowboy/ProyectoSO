@@ -1,4 +1,4 @@
-package Proyecto;
+package proyecto;
 
 public class Tablero {
 

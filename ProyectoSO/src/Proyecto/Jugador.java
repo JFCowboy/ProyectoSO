@@ -1,6 +1,10 @@
-package Proyecto;
+package proyecto;
 
 public abstract class Jugador extends Thread{
+	
+	public static final String ALI_DELANTERO = "Delantero";
+	public static final String ALI_VOLANTE = "Volante";
+	
 	/**
 	 * id: numero unico que le corresponde al jugador
 	 * name: Nombre del Jugador

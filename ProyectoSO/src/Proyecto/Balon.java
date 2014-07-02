@@ -1,4 +1,4 @@
-package Proyecto;
+package proyecto;
 
 import java.util.Arrays;
 import java.util.concurrent.Semaphore;
