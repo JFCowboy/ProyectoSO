@@ -1,0 +1,24 @@
+//colocar en linea 185 clase balon
+
+                if(jugadores[0].getAlineacion().equals("Delantero") && jugadores[0].getTablero().getUbicacion().equals("Colombia")){
+                             colaa.add("delanteroC");
+                        }
+                            if(jugadores[0].getAlineacion().equals("Delantero") && jugadores[0].getTablero().getUbicacion().equals("Alemania")){
+                                 //("delanteroCi");
+                                                           }
+                if(jugadores[0].getAlineacion().equals("Volante") && jugadores[0].getTablero().getUbicacion().equals("Colombia")){
+                             colaa.add("volanteC");
+                        }
+                            if(jugadores[0].getAlineacion().equals("Volante") && jugadores[0].getTablero().getUbicacion().equals("Alemania")){
+                                 colaa.add("volanteCi");
+                                                           }
+
+//colocar en linea 179 clase Balon
+
+                        if(jugadores[0].getAlineacion().equals("Volante") && jugadores[0].getTablero().getUbicacion().equals("Colombia")){
+                            colaa.add("volanteC");
+                        }
+                            if(jugadores[0].getAlineacion().equals("Volante") && jugadores[0].getTablero().getUbicacion().equals("Alemania")){
+                                colaa.add("volanteCi");
+                        }
+
