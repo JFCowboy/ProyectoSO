@@ -8,18 +8,18 @@ public class Delantero extends Jugador{
 	
 	public Delantero(int id, String ubicacion) {
 		super(id, ubicacion);
-		System.out.println("Se a creado Un Delantero "+id);
+		System.out.println("Se ha creado Un Delantero "+id);
 	}
 	
 	public Delantero() {
 		super();
-		System.out.println("Se a creado Un Delantero ");
+		System.out.println("Se ha creado Un Delantero ");
 	}
 
 	public Delantero(int id, String name, String ubicacion, Balon brazuca,
 			Tablero tablero, Tablero[] tableros) {
 		super(id, name, ubicacion, brazuca, tablero,tableros);
-		System.out.println("Se a creado Un Delantero "+id);
+		System.out.println("Se ha creado Un Delantero "+id);
 	}
 
 	@Override
