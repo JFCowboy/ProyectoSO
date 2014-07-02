@@ -55,8 +55,41 @@ public class Frame extends JFrame{
 	public void print(){	
 		//SE LEEN TODOS LOS ELEMENTOS A IMMPRIMIR UNO A UNO
 		for(int x=0;x<cola.size();++x){
+			if( cola.get(x).equals("VolantesC") ){
+				etiqueta[0].setIcon(new ImageIcon(this.getClass().getResource(Frame.PATH+"volantesC.png") ) );
+				try{
+					Thread.sleep(500);
+				}catch(InterruptedException ex){}
+				etiqueta[0].setIcon(null);
+				etiqueta[1].setIcon(new ImageIcon(this.getClass().getResource(Frame.PATH+"volantesC.png") ) );
+				try{
+					Thread.sleep(500);
+				}catch(InterruptedException ex){}
+				etiqueta[1].setIcon(null);
+				etiqueta[2].setIcon(new ImageIcon(this.getClass().getResource(Frame.PATH+"volantesC.png") ) );
+				try{
+					Thread.sleep(500);
+				}catch(InterruptedException ex){}
+				etiqueta[2].setIcon(null);
+			}else if( cola.get(x).equals("VolantesCi") ){
+				etiqueta[0].setIcon(new ImageIcon(this.getClass().getResource(Frame.PATH+"volantesCi.png") ) );
+				try{
+					Thread.sleep(500);
+				}catch(InterruptedException ex){}
+				etiqueta[0].setIcon(null);
+				etiqueta[1].setIcon(new ImageIcon(this.getClass().getResource(Frame.PATH+"volantesCi.png") ) );
+				try{
+					Thread.sleep(500);
+				}catch(InterruptedException ex){}
+				etiqueta[1].setIcon(null);
+				etiqueta[2].setIcon(new ImageIcon(this.getClass().getResource(Frame.PATH+"volantesCi.png") ) );
+				try{
+					Thread.sleep(500);
+				}catch(InterruptedException ex){}
+				etiqueta[2].setIcon(null);
+			}
 			//EN EL CASO QUE SEA UN DELANTERO
-			if(cola.get(x).equals("DelanteroC")){
+			else if(cola.get(x).equals("DelanteroC")){
 				
 				//SE IMPRIME EN EL PRIMER CUADRO EL DELANTERO
 				etiqueta[0].setIcon(new ImageIcon(this.getClass().getResource(Frame.PATH+"delanteroC.png") ) );
@@ -235,6 +268,11 @@ public class Frame extends JFrame{
 	}
 
 	public void printTermino() {
+		etiqueta[1].setIcon(new ImageIcon(this.getClass().getResource(Frame.PATH+"celebracion.gif") ) );
+		try{
+			Thread.sleep(10000);
+		}catch(InterruptedException ex){}
+		etiqueta[1].setIcon(null);
 		JOptionPane.showMessageDialog(this, "El entrenamiento Termino");
 	}
 }
